@@ -1,24 +1,21 @@
 <html><head><title>adns - advanced, alternative, asynchronous resolver</title>
 <!--
   Note to GNU webmasters and others who might edit this page: This
-  file is maintained in GNU CVS, and also served on the author's own
+  file is maintained in Savannah, but also served on the author's own
   system, under the URL http://www.chiark.greenend.org.uk/adns/
   Please ensure that all links continine to be correct both for
   www.gnu.org and chiark.
 
-  If you check in a change, please inform
-  webmaster@chiark.greenend.org.uk.
-
-  $Id: adns.html,v 1.8 2001/07/03 22:43:23 paulv Exp $
+  $Id: adns.html,v 1.9 2001/10/29 13:26:51 ijackson Exp $
   -->   
 <link rev="made" href="mailto:adns-maint@chiark.greenend.org.uk">
 <META NAME="keywords" CONTENT="adns">
 </head>
 <body>
-<h1>adns</h1>
+<h1>GNU adns</h1>
 
 <strong>Advanced, easy to use, asynchronous-capable DNS client
-library.</strong>
+library and utilities.</strong>
 
 <p>
 
@@ -64,23 +61,52 @@ several are available.  It has sensible handling of bad responses etc.
 
 </ul>
 
+adns also comes with a number of utility programs for use from the
+command line and in scripts:
+
+<ul>
+
+<li><code>adnslogres</code> is a much faster version of Apache's
+logresolv program.
+
+<li><code>adnsresfilter</code> is a filter which copies its input to
+its output, replacing IP addresses by the corresponding names, without
+unduly delaying the output.  For example, you can usefully pipe the
+output of netstat -n, tcpdump -ln, and the like, into it.
+
+<li><code>adnshost</code> is a general-purpose DNS lookup utility
+which can be used easily in shell scripts to do simple lookups.  In a
+more advanced mode it can be used as a general-purpose DNS helper
+program for scripting languages which can invoke and communicate with
+subprocesses.
+
+</ul>
+
 <h2>Forthcoming:</h2>
+
+A native Perl interface is in the works, thanks to Tony Finch.
+
+<p>
 
 I hope that future versions may also have the following features:
 
 <ul>
 
-<li>The library will be useable by threads in a multithreaded program
-in a natural way.  It will multiplex many threads' queries through a
-single query socket.
-
-<li>Limited caching behaviour.
+<li>The library should be useable by threads in a multithreaded
+program in a natural way.  It should multiplex many threads' queries
+through a single query socket.
 
 <li>IPv6 support.
 
+<li>Some kind of awareness of DNSSEC.
+
+<li>Possibly some very limited caching behaviour.
+
 </ul>
 
-(Technical note: adns requires a real nameserver like BIND or
+(Technical note: adns requires a real nameserver like
+<A href="http://www.isc.org/view.cgi?/products/BIND/index.phtml">BIND</A>
+or
 <A href="http://www.dents.org/">Dents</A> running on
 the same system or a nearby one, which must be willing to provide
 `recursive service'.  I.e., adns is a `stub resolver'.  All properly
@@ -90,15 +116,22 @@ they are usually listed in /etc/resolv.conf.)
 <h2>Documentation</h2>
 
 I'm afraid there is no manual yet.  However, competent C programmers
-should be able to use the library based on the commented
-<A href="http://www.chiark.greenend.org.uk/~ian/adns/adns.h.0.1.txt">adns.h</A>
-header file (from version 0.1).
+should be able to use the library based on the
+<A href="http://www.chiark.greenend.org.uk/~ian/adns/adns.h.txt">commented
+adns.h header file</A>.
 
 <h2>Feedback</h2>
 
-If you are subscribed to <code>adns-discuss</code> please send bug
-reports there; otherwise mail them to
-<code>adns-bugreports@chiark.greenend.org.uk</code>.
+I'd be pleased if you would let me know if you're using my library in
+your project, and what you think of it.
+
+<p>
+
+If you are subscribed to <code>adns-discuss</code> please send
+feedback, including bug reports, there; otherwise send mail to
+<code>adns-bugreports@chiark.greenend.org.uk</code>.  If you'd prefer
+that your message wasn't forwarded to the <code>adns-bugreports</code>
+list, send it to <code>adns-maint@chiark.greenend.org.uk</code>.
 
 <h2>Mailinglists</h2>
 
@@ -123,13 +156,25 @@ Available for download from
 <A href="http://www.chiark.greenend.org.uk/~ian/adns/">chiark.greenend.org.uk</A>
 are:
 <ul>
-<li>The <A href="http://www.chiark.greenend.org.uk/~ian/adns/adns.tar.gz">current pre-release version</A>
+<li>The <A href="http://www.chiark.greenend.org.uk/~ian/adns/adns.tar.gz">current beta version</A>
     as a gzipped tarfile.
-<li><A href="http://www.chiark.greenend.org.uk/~ian/adns/adns.h.0.1.txt">adns.h</A>
+<li><A href="http://www.chiark.greenend.org.uk/~ian/adns/adns.h.txt">adns.h</A>
     API header file with comments (currently there is no manual, sorry).
 <li>All versions released so far are also available via
     <A href="ftp://ftp.chiark.greenend.org.uk/users/ian/adns/">anonymous
     FTP</A>.
+</ul>
+
+You can also access the project CVS repositories:
+<ul>
+<li>A mirror of the source code repository is available via rsync from
+    <code>rsync.chiark.greenend.org.uk::ftp/users/ian/cvs-pub/adns</code>
+    (use FTP first to find your way around), or via
+    <A href="http://www.chiark.greenend.org.uk/ucgi/~ijackson/cvsweb/adns/">cvsweb</A>.
+<li>This web page is maintained in
+    <A href="http://savannah.gnu.org/">Savannah</A>,
+    where you can browse the
+    <A href="http://savannah.gnu.org/cgi-bin/viewcvs/software/adns/?cvsroot=www.gnu.org">webpage CVS</A>.
 </ul>
 
 adns is also available from the
@@ -138,7 +183,9 @@ adns is also available from the
 
 <h2>Copyright and licensing</h2>
 
-<kbd>adns</kbd> is Copyright 1997-1999 Ian Jackson.
+<kbd>adns</kbd> is Copyright 1997-2000 Ian Jackson, Copyright 1999
+Tony Finch, and Copyright (C) 1991 Massachusetts Institute of
+Technology.
 
 <p>
 
@@ -179,7 +226,7 @@ software</A> by me.
 <A href="/">site or mirror home page</A>
 <p>
 
-This web page is Copyright (C)1996-1999 Ian Jackson.  See the
+This web page is Copyright (C)1996-2001 Ian Jackson.  See the
 <A href="http://www.chiark.greenend.org.uk/~ian/sw-www-copy.html">Copyright/acknowledgements</A>.
 <p>
 
