@@ -15,7 +15,7 @@ library and utilities.</strong>
 <!--  Please ensure that all links continine to be correct        -->
 <!--  both for www.gnu.org and chiark.                            -->
 <!--                                                              -->
-<!--  $Id: adns.html,v 1.11 2001/10/29 13:50:12 ijackson Exp $    -->   
+<!--  $Id: adns.html,v 1.12 2001/10/29 14:02:46 ijackson Exp $    -->   
 
 <p>
 
@@ -66,6 +66,8 @@ several are available.  It has sensible handling of bad responses etc.
 
 </ul>
 
+<h2>DNS utility programs</h2>
+
 adns also comes with a number of utility programs for use from the
 command line and in scripts:
 
@@ -79,8 +81,6 @@ its output, replacing IP addresses by the corresponding names, without
 unduly delaying the output.  For example, you can usefully pipe the
 output of netstat -n, tcpdump -ln, and the like, into it.
 
-<h2>DNS utility programs</h2>
-
 <li><code>adnshost</code> is a general-purpose DNS lookup utility
 which can be used easily in from the command line and from shell
 scripts to do simple lookups.  In a more advanced mode it can be used
@@ -88,6 +88,8 @@ as a general-purpose DNS helper program for scripting languages which
 can invoke and communicate with subprocesses.  See the
 <A href="http://www.chiark.greenend.org.uk/~ian/adns/adnshost.txt">adnshost
 usage message</A> for a summary of its capabilities.
+
+</ul>
 
 <h2>Forthcoming:</h2>
 
@@ -110,15 +112,6 @@ through a single query socket.
 <li>Possibly some very limited caching behaviour.
 
 </ul>
-
-(Technical note: adns requires a real nameserver like
-<A href="http://www.isc.org/view.cgi?/products/BIND/index.phtml">BIND</A>
-or
-<A href="http://www.dents.org/">Dents</A> running on
-the same system or a nearby one, which must be willing to provide
-`recursive service'.  I.e., adns is a `stub resolver'.  All properly
-configured UN*X and GNU systems will already have such nameserver(s);
-they are usually listed in /etc/resolv.conf.)
 
 <h2>Documentation</h2>
 
