@@ -15,7 +15,7 @@ library and utilities.</strong>
 <!--  Please ensure that all links continine to be correct        -->
 <!--  both for www.gnu.org and chiark.                            -->
 <!--                                                              -->
-<!--  $Id: adns.html,v 1.12 2001/10/29 14:02:46 ijackson Exp $    -->   
+<!--  $Id: adns.html,v 1.13 2003/06/29 19:02:33 ijackson Exp $    -->   
 
 <p>
 
@@ -93,10 +93,6 @@ usage message</A> for a summary of its capabilities.
 
 <h2>Forthcoming:</h2>
 
-A native Perl interface is in the works, thanks to Tony Finch.
-
-<p>
-
 I hope that future versions may also have the following features:
 
 <ul>
@@ -110,6 +106,8 @@ through a single query socket.
 <li>Some kind of awareness of DNSSEC.
 
 <li>Possibly some very limited caching behaviour.
+
+<li>There was, at one point, a draft native Perl interface from Tony Finch.
 
 </ul>
 
@@ -198,6 +196,11 @@ the same system or a nearby one, which must be willing to provide
 `recursive service'.  I.e., adns is a `stub resolver'.  All properly
 configured UN*X and GNU systems will already have such nameserver(s);
 they are usually listed in /etc/resolv.conf.
+
+<h2>References and related projects</h2>
+
+There is a <a href="http://adns.jgaa.com/">port to MS Visual Studio 6
+C++</a> by Jarle Aase.
 
 <h2>Copyright and licensing</h2>
 
